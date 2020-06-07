@@ -18,9 +18,13 @@ let currentHour = now.getUTCHours() + brazilTimezoneOffSet;
 
 console.log(currentHour);
 
-console.log(currentHour >= startBusinessHours && currentHour <= endBusinessHours);
+console.log(currentHour >= startBusinessHours);
 
-app.use('/graphql', graphqlHttp({
+console.log(currentHour <= endBusinessHours);
+
+console.log((currentHour >= startBusinessHours) && (currentHour <= endBusinessHours));
+
+/*app.use('/graphql', graphqlHttp({
     schema: buildSchema(`
         type RootQuery {
             controlesDeSaude: [String!]!
@@ -45,6 +49,6 @@ app.use('/graphql', graphqlHttp({
         }
     },
     graphiql: true
-}));
+}));*/
 
 app.listen(3001);
